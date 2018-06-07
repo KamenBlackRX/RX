@@ -1,0 +1,10 @@
+{
+    "makefile": [
+        {
+            "CC" : "CC",
+            "CXX": "CXX",
+            "LDFLAGS": "LDFLAGS"
+
+        }
+    ]
+}

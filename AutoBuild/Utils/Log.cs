@@ -6,26 +6,32 @@ namespace Utils.Log {
         //TO-DO implement Singleton class
         private static Log instance = new Log ();
 
-        private static ILogger _logger;
-    
-        private Log () {
-            
+        private ILogger Logger;
+
+        public ILogger Logger1 { get => Logger; set => Logger = value; }
+
+        private Log (){
+          
          }
 
         public static Log Instance () {
             return instance;
         }
 
-        public static void ConfigureLogger () {
-            LoggerExtensions.LogDebug(_logger, "Starting Configure Log");
+        public void ConfigureLogger () {
+            Logger1.LogDebug("Starting Configure Log");
         }
 
-        public static void WriteToLog (string Message) {
-            LoggerExtensions.LogDebug(_logger,Message);
+        public void WriteToLog (string Message) {
+            Logger1.LogDebug(0xffff,ErrorLog(Message),Message);
         }
 
-         public static void WriteToLog (string Message, string[] args) {
-            LoggerExtensions.LogDebug(_logger,Message);
+         public void WriteToLog (string Message, string[] args) {
+            Logger1.LogDebug(0xffff,ErrorLog(Message),Message, args);
+        }
+
+        public Exception ErrorLog(object e){
+            return new Exception(e.ToString());
         }
     }
 }

@@ -1,5 +1,8 @@
 {
-    "intro": [
-       "Version OS: %s"
+    "OS": [
+        {
+            "VersionOS": "Versão de Sistema",
+            "PlataformCode": "Codigo dá plataforma"
+        }
     ]
 }
