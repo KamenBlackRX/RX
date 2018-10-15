@@ -4,6 +4,7 @@ CXX=g++
 #GTKFLAGS=-Wextra $(shell pkg-config --cflags --libs gtk+-3.0)
 SDLFLAGS=$(shell pkg-config --cflags --libs sdl2)
 GLEWFLAGS=$(shell pkg-config --cflags --libs glew)
+XFLAGS=$(shell pkg-config --cflags --libs x11)
 
 CFLAGS=-g -std=c++11 -Wreturn-local-addr -pthread
 CPPFLAGS= -lSDL2
@@ -22,7 +23,7 @@ all:  $(MAIN)
 
 $(MAIN): $(SOURCE)
 	@echo $(GLEWFLAGS)
-	$(CXX) $(CFLAGS) $^ $(SDLFLAGS) $(GLEWFLAGS) -o $(MAIN)
+	$(CXX) $(CFLAGS) $^ $(SDLFLAGS) $(GLEWFLAGS) $(XFLAGS) -o $(MAIN)
 
 static: $(SOURCE)
 
